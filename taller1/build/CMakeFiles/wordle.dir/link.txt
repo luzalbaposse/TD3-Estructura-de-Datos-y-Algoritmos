@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/wordle.dir/wordle.cpp.o CMakeFiles/wordle.dir/funciones.cpp.o -o wordle 
