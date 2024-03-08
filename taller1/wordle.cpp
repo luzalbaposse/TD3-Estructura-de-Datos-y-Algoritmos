@@ -27,6 +27,7 @@ int main(){
         }
         else{
             cout << "Bueno, está bien!" << endl;
+            return 0;
         }
     }
     while(InicioDelJuego){
@@ -36,23 +37,12 @@ int main(){
 
         // Inicializar el contador de intentos
         int MaxIntentos = 6;
+
         // Comienzo el juego
-        /*
-        
-        En caso de que el intento sea válido se debe evaluar el intento y darle la respuesta al usuario por pantalla. ✅
-        Esto le resta un intento al usuario para adivinar la palabra. ✅
-
-        En caso de que el intento no sea válido (es decir, no sea legal) se debe indicar por pantalla que el intento 
-        no es valido e invitar al usuario escribir un nuevo intento. En este caso no se le resta al usuario una oportunidad. ✅
-
-        En caso de que el usuario adivine la palabra el juego termina y se debe indicar por pantalla que el usuario adivinó. ✅
-
-        En caso de que se agoten los cinco intentos el juego termina y se debe indicar por pantalla que el número de intentos se agotó.✅
-        */
 
         while(MaxIntentos >= 0){
             string intento;
-            cout << "Intentá adivinar la palabra secreta: ";
+            cout << "Intentá adivinar la palabra secreta... Pista: Tiene 5 letras!";
             cin >> intento;
             if(intento_valido(intento, palabra_secreta, listado)){
                 vector<EstadoLetra> respuesta = evaluar_intento(intento, palabra_secreta);
