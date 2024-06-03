@@ -11,7 +11,7 @@ Rep(e:estr):: (e.cantidad_distintos == |elementos| <=> e.elementos = {e1, e2, ..
         int cantidad_distintos;  // Precondición: - | Postcondición: cantidad_distintos == 0
         vector<int> elementos; // Precondición: - | Postcondición: elementos == {}
     public:
-        Multiconjunto(); // Precondición: Rep(e:estr) válida | Postcondición: cantidad_distintos == 0
+        Multiconjunto() : cantidad_distintos(0), elementos({}) {} // Precondición: Rep(e:estr) válida | Postcondición: cantidad_distintos == 0
         
         int contar_apariciones(int e) const{
             int contador = 0;
@@ -58,3 +58,21 @@ Rep(e:estr):: (e.cantidad_distintos == |elementos| <=> e.elementos = {e1, e2, ..
         }
 
 };
+
+// ) Construir el siguiente Multiconjunto: {2, 65, 2, 3, 8, 8, 7, 65, 0} y consultar la cantidad de
+// elementos distintos.
+
+int main(){
+    Multiconjunto m;
+    m.agregar(2);
+    m.agregar(65);
+    m.agregar(2);
+    m.agregar(3);
+    m.agregar(8);
+    m.agregar(8);
+    m.agregar(7);
+    m.agregar(65);
+    m.agregar(0);
+    cout << "Cantidad de elementos distintos: " << m.cantidad_elementos_distintos() << endl;
+    return 0;
+}
