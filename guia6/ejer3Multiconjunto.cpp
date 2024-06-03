@@ -19,8 +19,8 @@ Rep(e:estr):: (e.cantidad_distintos == |elementos| <=> e.elementos = {e1, e2, ..
                 if (elementos[i] == e){
                     contador++;
                 }
-            return contador;
             } 
+            return contador;
         }
 
         void agregar(int e){
