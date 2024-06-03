@@ -13,11 +13,12 @@ Rep(e:estr) = |e.nombre| > 0 && e.edad > 0  && #(amigos) > 10 => es_popular == t
         int edad;  // Precondición: edad es mayor a cero | Postcondición: edad( ) == edad
         set<string> amigos; // Precondición: - | Postcondición: amigos == {}
         bool es_popular; // Precondición: - | Postcondición: es_popular() == false
+    
     public:
-        Usuario(string nombre, int edad); 
+        Usuario(string nombre, int edad) : nombre(nombre), edad(edad), es_popular(false) {};
         /*Precondición: nombre no está vacío y edad es mayor a cero | Postcondición: cree un objeto usuario.
         */
-        string nombre() const{
+        string nombre_() const{
         /*
         Método observador, devuelve el nombre del usuario.
         Pre-condición: -
@@ -25,7 +26,7 @@ Rep(e:estr) = |e.nombre| > 0 && e.edad > 0  && #(amigos) > 10 => es_popular == t
         */
         return nombre;
         }
-        int edad() const{
+        int edad_() const{
         /*
         Método observador, devuelve la edad del usuario.
         Pre-condición: -
@@ -54,7 +55,7 @@ Rep(e:estr) = |e.nombre| > 0 && e.edad > 0  && #(amigos) > 10 => es_popular == t
         */
             return (amigos.count(nombre) > 0);
         }
-        bool es_popular() const{
+        bool es_popular_() const{
         /*
         Método observador, devuelve si el usuario es popular.
         Pre-condición: -
@@ -63,3 +64,25 @@ Rep(e:estr) = |e.nombre| > 0 && e.edad > 0  && #(amigos) > 10 => es_popular == t
             return (amigos.size() >=10);
         }  
 };
+
+int main(){
+    // Me creo un usuario para mi
+    Usuario u("Luz", 20);
+    // Me creo un usuario para mi amiga
+    Usuario u2("Martina", 20);
+    Usuario u3 ("Pepito", 30);
+    Usuario u4 ("Juan", 30);
+    Usuario u5 ("Pedro", 30);
+    Usuario u6 ("Maria", 30);
+
+    // Agrego a todos como amigos
+    u.agregar_amigo(u2.nombre_());
+    u.agregar_amigo(u3.nombre_());
+    u.agregar_amigo(u4.nombre_());
+    u.agregar_amigo(u5.nombre_());
+    u.agregar_amigo(u6.nombre_());
+
+    // Martina es mi amiga?
+    cout << u.es_amigo(u2.nombre_()) << endl;
+
+}
